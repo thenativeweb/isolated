@@ -2,7 +2,7 @@
   "name": "isolated",
   "version": "0.0.1",
   "description": "isolated provider one-time folders for unit tests.",
-  "author": "Golo Roden <golo.roden@thenativeweb.io> (http://www.thenativeweb.io)",
+  "author": "Golo Roden <webmaster@goloroden.de> (http://www.goloroden.de)",
   "main": "lib/isolated.js",
   "dependencies": {
     "async": "0.2.7",
@@ -22,6 +22,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thenativeweb/isolated.git"
+    "url": "git://github.com/goloroden/isolated.git"
   }
 }
