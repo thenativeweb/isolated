@@ -1,6 +1,6 @@
 # isolated
 
-isolated provider one-time folders for unit tests.
+isolated provides one-time folders for unit tests.
 
 ## Installation
 
