@@ -2,6 +2,8 @@
 
 isolated provides one-time folders for unit tests.
 
+If you have any questions or feedback, feel free to contact me using [@goloroden](https://twitter.com/goloroden) on Twitter.
+
 ## Installation
 
     $ npm install isolated
