@@ -38,8 +38,6 @@ test('...', function (done) {
 
 If you need to copy multiple files or directories, specify an array instead of a single item.
 
-Then you can use it within your tests. In its simplest form, isolated provides a one-time folder for your test and guarantees to clean up later.
-
 ```javascript
 test('...', function (done) {
   isolated([ 'foo.txt', 'bar.txt' ], function (err, directory) {
