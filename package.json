@@ -1,6 +1,6 @@
 {
   "name": "isolated",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "isolated provider one-time folders for unit tests.",
   "contributors": [
     {
