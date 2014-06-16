@@ -2,26 +2,27 @@
   "name": "isolated",
   "version": "0.0.1",
   "description": "isolated provider one-time folders for unit tests.",
-  "author": "Golo Roden <webmaster@goloroden.de> (http://www.goloroden.de)",
+  "contributors": [
+    {
+      "name": "Golo Roden",
+      "email": "golo.roden@thenativeweb.io"
+    }
+  ],
   "main": "lib/isolated.js",
   "dependencies": {
-    "async": "0.2.7",
-    "fs-extra": "0.6.0",
-    "temp": "0.5.0",
-    "underscore": "1.4.4"
+    "async": "0.9.0",
+    "fs-extra": "0.9.1",
+    "temp": "0.8.0",
+    "underscore": "1.6.0"
   },
   "devDependencies": {
-    "grunt": "0.4.0",
-    "grunt-contrib-jshint": "0.1.1",
-    "grunt-contrib-watch": "0.2.0",
-    "grunt-mocha-test": "0.2.0",
-    "node-assertthat": "0.0.17"
-  },
-  "scripts": {
-    "test": "mocha"
+    "grunt": "0.4.5",
+    "node-assertthat": "0.2.0",
+    "tourism": "0.1.0"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/goloroden/isolated.git"
-  }
+  },
+  "license": "MIT"
 }

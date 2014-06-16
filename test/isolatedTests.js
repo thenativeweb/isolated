@@ -7,11 +7,13 @@ var assert = require('node-assertthat');
 
 var isolated = require('../lib/isolated');
 
-var foo = path.join(__dirname, 'data', 'foo.txt'),
-    bar = path.join(__dirname, 'data', 'bar.txt'),
-    data = path.join(__dirname, 'data');
+var bar = path.join(__dirname, 'data', 'bar.txt'),
+    foo = path.join(__dirname, 'data', 'foo.txt');
+
+var data = path.join(__dirname, 'data');
 
 suite('isolated', function () {
+  /*eslint-disable handle-callback-err*/
   test('returns an empty directory.', function (done) {
     isolated(function (err, directory) {
       fs.readdir(directory, function (err, files) {
@@ -55,4 +57,5 @@ suite('isolated', function () {
       });
     });
   });
+  /*eslint-enable handle-callback-err*/
 });
