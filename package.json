@@ -24,5 +24,10 @@
     "type": "git",
     "url": "git://github.com/thenativeweb/isolated.git"
   },
+  "keywords": [
+    "mocha",
+    "tdd",
+    "test"
+  ],
   "license": "MIT"
 }
