@@ -1,6 +1,6 @@
 {
   "name": "isolated",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "isolated provides one-time folders for unit tests.",
   "contributors": [
     {
