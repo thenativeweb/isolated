@@ -27,7 +27,9 @@ suite('isolated', function () {
   });
 
   test('copies the specified file to the isolated directory.', function (done) {
-    isolated(foo, function (errIsolated, directory) {
+    isolated({
+      files: foo
+    }, function (errIsolated, directory) {
       assert.that(errIsolated).is.null();
 
       fs.readdir(directory, function (err, files) {
@@ -40,7 +42,9 @@ suite('isolated', function () {
   });
 
   test('copies the specified files to the isolated directory.', function (done) {
-    isolated([ foo, bar ], function (errIsolated, directory) {
+    isolated({
+      files: [ foo, bar ]
+    }, function (errIsolated, directory) {
       assert.that(errIsolated).is.null();
 
       fs.readdir(directory, function (err, files) {
@@ -54,13 +58,44 @@ suite('isolated', function () {
   });
 
   test('copies the specified directory to the isolated directory.', function (done) {
-    isolated(data, function (errIsolated, directory) {
+    isolated({
+      files: data
+    }, function (errIsolated, directory) {
       assert.that(errIsolated).is.null();
 
       fs.readdir(directory, function (err, files) {
         assert.that(err).is.null();
         assert.that(files.length).is.equalTo(1);
         assert.that(files[0]).is.equalTo('data');
+        done();
+      });
+    });
+  });
+
+  test('does not preserve timestamps.', function (done) {
+    isolated({
+      files: foo
+    }, function (errIsolated, directory) {
+      assert.that(errIsolated).is.null();
+
+      fs.stat(path.join(directory, 'foo.txt'), function (errStat, stat) {
+        assert.that(errStat).is.null();
+        assert.that(stat.mtime.getTime()).is.greaterThan(Date.now() - 1000);
+        done();
+      });
+    });
+  });
+
+  test('preserves timestamps on request.', function (done) {
+    isolated({
+      files: foo,
+      preserveTimestamps: true
+    }, function (errIsolated, directory) {
+      assert.that(errIsolated).is.null();
+
+      fs.stat(path.join(directory, 'foo.txt'), function (errStat, stat) {
+        assert.that(errStat).is.null();
+        assert.that(stat.mtime.getTime()).is.lessThan(Date.now() - 1000);
         done();
       });
     });

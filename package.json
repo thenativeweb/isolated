@@ -10,7 +10,7 @@
   ],
   "main": "lib/isolated.js",
   "dependencies": {
-    "async": "1.3.0",
+    "async": "1.4.0",
     "fs-extra": "0.22.1",
     "lodash": "3.10.0",
     "temp": "0.8.3"

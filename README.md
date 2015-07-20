@@ -28,7 +28,9 @@ Additionally, you may want to specify a file or a directory that isolated shall 
 
 ```javascript
 test('...', function (done) {
-  isolated('foo.txt', function (err, directory) {
+  isolated({
+    files: 'foo.txt'
+  }, function (err, directory) {
     // ...
   });
 });
@@ -38,7 +40,22 @@ If you need to copy multiple files or directories, specify an array instead of a
 
 ```javascript
 test('...', function (done) {
-  isolated([ 'foo.txt', 'bar.txt' ], function (err, directory) {
+  isolated({
+    files: [ 'foo.txt', 'bar.txt' ]
+  }, function (err, directory) {
+    // ...
+  });
+});
+```
+
+Sometimes you may want isolate to preserve the sources` timestamps. For that additionally provide the `preserveTimestamps` option and set it to `true`.
+
+```javascript
+test('...', function (done) {
+  isolated({
+    files: [ 'foo.txt', 'bar.txt' ],
+    preserveTimestamps: true
+  }, function (err, directory) {
     // ...
   });
 });
