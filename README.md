@@ -48,7 +48,7 @@ test('...', function (done) {
 });
 ```
 
-Sometimes you may want isolate to preserve the sources` timestamps. For that additionally provide the `preserveTimestamps` option and set it to `true`.
+Sometimes you may want isolate to preserve the sources' timestamps. For that additionally provide the `preserveTimestamps` option and set it to `true`.
 
 ```javascript
 test('...', function (done) {
