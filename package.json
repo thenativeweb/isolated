@@ -8,7 +8,7 @@
       "email": "golo.roden@thenativeweb.io"
     }
   ],
-  "main": "lib/isolated.js",
+  "main": "dist/isolated.js",
   "dependencies": {
     "async": "1.4.0",
     "fs-extra": "0.22.1",
@@ -16,9 +16,8 @@
     "temp": "0.8.3"
   },
   "devDependencies": {
-    "assertthat": "0.6.0",
-    "grunt": "0.4.5",
-    "tourism": "0.20.2"
+    "assertthat": "1.0.0",
+    "roboter": "1.0.6"
   },
   "repository": {
     "type": "git",

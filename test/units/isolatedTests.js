@@ -5,7 +5,7 @@ var fs = require('fs'),
 
 var assert = require('assertthat');
 
-var isolated = require('../lib/isolated');
+var isolated = require('../../src/isolated');
 
 var bar = path.join(__dirname, 'data', 'bar.txt'),
     foo = path.join(__dirname, 'data', 'foo.txt');
