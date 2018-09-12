@@ -6,19 +6,24 @@
     {
       "name": "Golo Roden",
       "email": "golo.roden@thenativeweb.io"
+    },
+    {
+      "name": "Jan-Hendrik Grundhöfer",
+      "email": "jan-hendrik.grundhoefer@thenativeweb.io"
+    },
+    {
+      "name": "Matthias Wagler",
+      "email": "matthias.wagler@thenativeweb.io"
     }
   ],
-  "main": "lib/isolated.js",
+  "main": "dist/isolated.js",
   "dependencies": {
-    "async": "1.4.0",
-    "fs-extra": "0.22.1",
-    "lodash": "3.10.0",
+    "fs-extra": "7.0.0",
     "temp": "0.8.3"
   },
   "devDependencies": {
-    "assertthat": "0.6.0",
-    "grunt": "0.4.5",
-    "tourism": "0.20.2"
+    "assertthat": "1.0.0",
+    "roboter": "1.0.6"
   },
   "repository": {
     "type": "git",
