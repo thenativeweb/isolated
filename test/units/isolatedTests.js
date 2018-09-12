@@ -1,104 +1,82 @@
 'use strict';
 
-var fs = require('fs'),
-    path = require('path');
+const fs = require('fs'),
+      path = require('path'),
+      { promisify } = require('util');
 
-var assert = require('assertthat');
+const assert = require('assertthat');
 
-var isolated = require('../../src/isolated');
+const isolated = require('../../src/isolated');
 
-var bar = path.join(__dirname, 'data', 'bar.txt'),
-    foo = path.join(__dirname, 'data', 'foo.txt');
+const readDir = promisify(fs.readdir),
+      stat = promisify(fs.stat);
 
-var data = path.join(__dirname, 'data');
+const bar = path.join(__dirname, 'data', 'bar.txt'),
+      foo = path.join(__dirname, 'data', 'foo.txt');
 
-suite('isolated', function () {
-  /* eslint-disable handle-callback-err */
-  test('returns an empty directory.', function (done) {
-    isolated(function (errIsolated, directory) {
-      assert.that(errIsolated).is.null();
+const data = path.join(__dirname, 'data');
 
-      fs.readdir(directory, function (err, files) {
-        assert.that(err).is.null();
-        assert.that(files.length).is.equalTo(0);
-        done();
-      });
-    });
+suite('isolated', () => {
+  test('returns an empty directory.', async () => {
+    const tempDirectory = await isolated();
+
+    const files = await readDir(tempDirectory);
+
+    assert.that(files.length).is.equalTo(0);
   });
 
-  test('copies the specified file to the isolated directory.', function (done) {
-    isolated({
+  test('copies the specified file to the isolated directory.', async () => {
+    const tempDirectory = await isolated({
       files: foo
-    }, function (errIsolated, directory) {
-      assert.that(errIsolated).is.null();
-
-      fs.readdir(directory, function (err, files) {
-        assert.that(err).is.null();
-        assert.that(files.length).is.equalTo(1);
-        assert.that(files[0]).is.equalTo('foo.txt');
-        done();
-      });
     });
+
+    const files = await readDir(tempDirectory);
+
+    assert.that(files.length).is.equalTo(1);
+    assert.that(files[0]).is.equalTo('foo.txt');
   });
 
-  test('copies the specified files to the isolated directory.', function (done) {
-    isolated({
+  test('copies the specified files to the isolated directory.', async () => {
+    const tempDirectory = await isolated({
       files: [ foo, bar ]
-    }, function (errIsolated, directory) {
-      assert.that(errIsolated).is.null();
-
-      fs.readdir(directory, function (err, files) {
-        assert.that(err).is.null();
-        assert.that(files.length).is.equalTo(2);
-        assert.that(files.indexOf('foo.txt')).is.not.equalTo(-1);
-        assert.that(files.indexOf('bar.txt')).is.not.equalTo(-1);
-        done();
-      });
     });
+
+    const files = await readDir(tempDirectory);
+
+    assert.that(files.length).is.equalTo(2);
+    assert.that(files).is.containing('foo.txt');
+    assert.that(files).is.containing('bar.txt');
   });
 
-  test('copies the specified directory to the isolated directory.', function (done) {
-    isolated({
+  test('copies the specified directory to the isolated directory.', async () => {
+    const tempDirectory = await isolated({
       files: data
-    }, function (errIsolated, directory) {
-      assert.that(errIsolated).is.null();
-
-      fs.readdir(directory, function (err, files) {
-        assert.that(err).is.null();
-        assert.that(files.length).is.equalTo(1);
-        assert.that(files[0]).is.equalTo('data');
-        done();
-      });
     });
+
+    const files = await readDir(tempDirectory);
+
+    assert.that(files.length).is.equalTo(1);
+    assert.that(files).is.containing('data');
   });
 
-  test('does not preserve timestamps.', function (done) {
-    isolated({
+  test('does not preserve timestamps.', async () => {
+    const tempDirectory = await isolated({
       files: foo
-    }, function (errIsolated, directory) {
-      assert.that(errIsolated).is.null();
-
-      fs.stat(path.join(directory, 'foo.txt'), function (errStat, stat) {
-        assert.that(errStat).is.null();
-        assert.that(stat.mtime.getTime()).is.greaterThan(Date.now() - 1000);
-        done();
-      });
     });
+
+    const stats = await stat(path.join(tempDirectory, 'foo.txt'));
+
+    assert.that(stats.mtime.getTime()).is.greaterThan(Date.now() - 1000);
   });
 
-  test('preserves timestamps on request.', function (done) {
-    isolated({
+  test('preserves timestamps on request.', async () => {
+    const tempDirectory = await isolated({
       files: foo,
       preserveTimestamps: true
-    }, function (errIsolated, directory) {
-      assert.that(errIsolated).is.null();
-
-      fs.stat(path.join(directory, 'foo.txt'), function (errStat, stat) {
-        assert.that(errStat).is.null();
-        assert.that(stat.mtime.getTime()).is.lessThan(Date.now() - 1000);
-        done();
-      });
     });
+
+    const stats = await stat(path.join(tempDirectory, 'foo.txt'));
+
+    assert.that(stats.mtime.getTime()).is.lessThan(Date.now() - 1000);
   });
-  /* eslint-enable handle-callback-err */
 });

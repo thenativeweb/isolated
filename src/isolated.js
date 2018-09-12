@@ -1,52 +1,55 @@
 'use strict';
 
-var path = require('path');
+const path = require('path'),
+      { promisify } = require('util');
 
-var _ = require('lodash'),
-    async = require('async'),
-    fs = require('fs-extra'),
-    temp = require('temp');
+const fs = require('fs-extra'),
+      temp = require('temp');
 
-var isolated = function (options, callback) {
-  if (!callback) {
-    callback = options;
-    options = {};
+const mkdir = promisify(temp.mkdir);
+
+const isolated = async function ({ files, preserveTimestamps = false } = {}) {
+  const tempDirectory = await mkdir(null);
+
+  if (!files) {
+    return tempDirectory;
   }
 
-  options.files = options.files || undefined;
-  options.preserveTimestamps = !!options.preserveTimestamps;
+  let filesToCopy = files;
 
-  temp.mkdir(null, function (errMkdir, directory) {
-    var files;
+  if (!Array.isArray(files)) {
+    filesToCopy = [ files ];
+  }
 
-    if (errMkdir) {
-      return callback(errMkdir);
-    }
+  await Promise.all(
+    filesToCopy.map(file => new Promise(async (resolve, reject) => {
+      const fileName = path.basename(file);
 
-    if (!options.files) {
-      return callback(null, directory);
-    }
-
-    files = _.flatten([ options.files ]);
-
-    async.each(files, function (fileWithPath, done) {
-      var fileWithoutPath = path.basename(fileWithPath);
-
-      fs.copy(fileWithPath, path.join(directory, fileWithoutPath), {
-        preserveTimestamps: options.preserveTimestamps
-      }, function (errCopy) {
-        if (errCopy) {
-          return done(errCopy);
-        }
-        done(null);
-      });
-    }, function (errEach) {
-      if (errEach) {
-        return callback(errEach);
+      try {
+        await fs.copy(file, path.join(tempDirectory, fileName), {
+          preserveTimestamps: Boolean(preserveTimestamps)
+        });
+      } catch (ex) {
+        return reject(ex);
       }
-      callback(null, directory);
-    });
-  });
+
+      if (preserveTimestamps) {
+        return resolve();
+      }
+
+      const now = new Date();
+
+      try {
+        await fs.utimes(path.join(tempDirectory, fileName), now, now);
+      } catch (ex) {
+        return reject(ex);
+      }
+
+      resolve();
+    }))
+  );
+
+  return tempDirectory;
 };
 
 module.exports = isolated;

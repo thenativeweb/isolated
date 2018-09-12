@@ -4,34 +4,32 @@ isolated provides one-time folders for unit tests.
 
 ## Installation
 
-    $ npm install isolated
+```shell
+$ npm install isolated
+```
 
 ## Quick Start
 
 Using isolated is easy. All you need to do is to add a reference to it within your Node.js application:
 
 ```javascript
-var isolated = require('isolated');
+const isolated = require('isolated');
 ```
 
 Then you can use it within your tests. In its simplest form, isolated provides a one-time folder for your test and guarantees to clean up later.
 
 ```javascript
-test('...', function (done) {
-  isolated(function (err, directory) {
-    // ...
-  });
+test('...', async () => {
+  const directory = await isolated();
 });
 ```
 
 Additionally, you may want to specify a file or a directory that isolated shall copy to the one-time directory before running your test.
 
 ```javascript
-test('...', function (done) {
-  isolated({
+test('...', async () => {
+  const directory = await isolated({
     files: 'foo.txt'
-  }, function (err, directory) {
-    // ...
   });
 });
 ```
@@ -39,11 +37,9 @@ test('...', function (done) {
 If you need to copy multiple files or directories, specify an array instead of a single item.
 
 ```javascript
-test('...', function (done) {
-  isolated({
+test('...', async () => {
+  const directory = await isolated({
     files: [ 'foo.txt', 'bar.txt' ]
-  }, function (err, directory) {
-    // ...
   });
 });
 ```
@@ -51,26 +47,26 @@ test('...', function (done) {
 Sometimes you may want isolate to preserve the sources' timestamps. For that additionally provide the `preserveTimestamps` option and set it to `true`.
 
 ```javascript
-test('...', function (done) {
-  isolated({
+test('...', async () => {
+  const directory = await isolated({
     files: [ 'foo.txt', 'bar.txt' ],
     preserveTimestamps: true
-  }, function (err, directory) {
-    // ...
   });
 });
 ```
 
 ## Running the build
 
-This module can be built using [Grunt](http://gruntjs.com/). Besides running the tests, this also analyses the code. To run Grunt, go to the folder where you have installed isolated and run `grunt`. You need to have [grunt-cli](https://github.com/gruntjs/grunt-cli) installed.
+To build this module use [roboter](https://www.npmjs.com/package/roboter).
 
-    $ grunt
+```shell
+$ npx roboter
+```
 
 ## License
 
 The MIT License (MIT)
-Copyright (c) 2013-2015 the native web.
+Copyright (c) 2013-2018 the native web.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
