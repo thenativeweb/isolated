@@ -59,7 +59,7 @@ suite('isolated', () => {
     assert.that(files).is.containing('data');
   });
 
-  test('does not preserve timestamps.', async () => {
+  test('does not preserve timestamps on files.', async () => {
     const tempDirectory = await isolated({
       files: foo
     });
@@ -67,6 +67,18 @@ suite('isolated', () => {
     const stats = await stat(path.join(tempDirectory, 'foo.txt'));
 
     assert.that(stats.mtime.getTime()).is.greaterThan(Date.now() - 1000);
+  });
+
+  test('does not preserve timestamps on directories.', async () => {
+    const tempDirectory = await isolated({
+      files: data
+    });
+
+    const statsFoo = await stat(path.join(tempDirectory, 'data', 'foo.txt'));
+    const statsBar = await stat(path.join(tempDirectory, 'data', 'bar.txt'));
+
+    assert.that(statsFoo.mtime.getTime()).is.greaterThan(Date.now() - 1000);
+    assert.that(statsBar.mtime.getTime()).is.greaterThan(Date.now() - 1000);
   });
 
   test('preserves timestamps on request.', async () => {

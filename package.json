@@ -19,6 +19,7 @@
   "main": "dist/isolated.js",
   "dependencies": {
     "fs-extra": "7.0.0",
+    "recursive-readdir": "2.2.2",
     "temp": "0.8.3"
   },
   "devDependencies": {
