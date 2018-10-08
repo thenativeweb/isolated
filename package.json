@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "assertthat": "1.0.0",
-    "roboter": "thenativeweb/roboter#upgrade-to-babel-7"
+    "roboter": "2.0.0"
   },
   "repository": {
     "type": "git",
