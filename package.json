@@ -18,13 +18,14 @@
   ],
   "main": "dist/isolated.js",
   "dependencies": {
+    "@babel/runtime": "7.1.2",
     "fs-extra": "7.0.0",
     "recursive-readdir": "2.2.2",
     "temp": "0.8.3"
   },
   "devDependencies": {
     "assertthat": "1.0.0",
-    "roboter": "1.0.6"
+    "roboter": "thenativeweb/roboter#upgrade-to-babel-7"
   },
   "repository": {
     "type": "git",

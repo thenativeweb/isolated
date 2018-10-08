@@ -1,23 +1,14 @@
 'use strict';
 
-var _regenerator = require('babel-runtime/regenerator');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _regenerator2 = _interopRequireDefault(_regenerator);
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-var _promise = require('babel-runtime/core-js/promise');
-
-var _promise2 = _interopRequireDefault(_promise);
-
-var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
-
-var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
 var path = require('path'),
     _require = require('util'),
     promisify = _require.promisify;
-
 
 var fs = require('fs-extra'),
     readDirectoryRecursive = require('recursive-readdir'),
@@ -25,47 +16,57 @@ var fs = require('fs-extra'),
 
 var mkdir = promisify(temp.mkdir);
 
-var isolated = function () {
-  var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
-    var _this = this;
+var isolated =
+/*#__PURE__*/
+function () {
+  var _ref = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee2() {
+    var _ref2,
+        files,
+        _ref2$preserveTimesta,
+        preserveTimestamps,
+        tempDirectory,
+        filesToCopy,
+        allFiles,
+        now,
+        _args2 = arguments;
 
-    var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        files = _ref2.files,
-        _ref2$preserveTimesta = _ref2.preserveTimestamps,
-        preserveTimestamps = _ref2$preserveTimesta === undefined ? false : _ref2$preserveTimesta;
-
-    var tempDirectory, filesToCopy, allFiles, now;
-    return _regenerator2.default.wrap(function _callee2$(_context2) {
+    return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            _context2.next = 2;
+            _ref2 = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : {}, files = _ref2.files, _ref2$preserveTimesta = _ref2.preserveTimestamps, preserveTimestamps = _ref2$preserveTimesta === void 0 ? false : _ref2$preserveTimesta;
+            _context2.next = 3;
             return mkdir(null);
 
-          case 2:
+          case 3:
             tempDirectory = _context2.sent;
 
             if (files) {
-              _context2.next = 5;
+              _context2.next = 6;
               break;
             }
 
-            return _context2.abrupt('return', tempDirectory);
+            return _context2.abrupt("return", tempDirectory);
 
-          case 5:
+          case 6:
             filesToCopy = files;
-
 
             if (!Array.isArray(files)) {
               filesToCopy = [files];
             }
 
-            _context2.next = 9;
-            return _promise2.default.all(filesToCopy.map(function (file) {
-              return new _promise2.default(function () {
-                var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(resolve, reject) {
+            _context2.next = 10;
+            return Promise.all(filesToCopy.map(function (file) {
+              return new Promise(
+              /*#__PURE__*/
+              function () {
+                var _ref3 = (0, _asyncToGenerator2.default)(
+                /*#__PURE__*/
+                _regenerator.default.mark(function _callee(resolve, reject) {
                   var fileName;
-                  return _regenerator2.default.wrap(function _callee$(_context) {
+                  return _regenerator.default.wrap(function _callee$(_context) {
                     while (1) {
                       switch (_context.prev = _context.next) {
                         case 0:
@@ -82,52 +83,51 @@ var isolated = function () {
 
                         case 6:
                           _context.prev = 6;
-                          _context.t0 = _context['catch'](1);
-                          return _context.abrupt('return', reject(_context.t0));
+                          _context.t0 = _context["catch"](1);
+                          return _context.abrupt("return", reject(_context.t0));
 
                         case 9:
-
                           resolve();
 
                         case 10:
-                        case 'end':
+                        case "end":
                           return _context.stop();
                       }
                     }
-                  }, _callee, _this, [[1, 6]]);
+                  }, _callee, this, [[1, 6]]);
                 }));
 
-                return function (_x2, _x3) {
+                return function (_x, _x2) {
                   return _ref3.apply(this, arguments);
                 };
               }());
             }));
 
-          case 9:
+          case 10:
             if (!preserveTimestamps) {
-              _context2.next = 11;
+              _context2.next = 12;
               break;
             }
 
-            return _context2.abrupt('return', tempDirectory);
+            return _context2.abrupt("return", tempDirectory);
 
-          case 11:
-            _context2.next = 13;
+          case 12:
+            _context2.next = 14;
             return readDirectoryRecursive(tempDirectory);
 
-          case 13:
+          case 14:
             allFiles = _context2.sent;
             now = Date.now();
-            _context2.next = 17;
-            return _promise2.default.all(allFiles.map(function (file) {
+            _context2.next = 18;
+            return Promise.all(allFiles.map(function (file) {
               return fs.utimes(file, now, now);
             }));
 
-          case 17:
-            return _context2.abrupt('return', tempDirectory);
-
           case 18:
-          case 'end':
+            return _context2.abrupt("return", tempDirectory);
+
+          case 19:
+          case "end":
             return _context2.stop();
         }
       }
