@@ -6,7 +6,7 @@ const fs = require('fs'),
 
 const assert = require('assertthat');
 
-const isolated = require('../../src/isolated');
+const isolated = require('../../lib/isolated');
 
 const readDir = promisify(fs.readdir),
       stat = promisify(fs.stat);
