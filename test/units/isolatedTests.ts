@@ -1,12 +1,8 @@
-'use strict';
-
-const fs = require('fs'),
-      path = require('path'),
-      { promisify } = require('util');
-
-const assert = require('assertthat');
-
-const isolated = require('../../lib/isolated');
+import assert from 'assertthat';
+import fs from 'fs';
+import isolated from '../../lib/isolated';
+import path from 'path';
+import { promisify } from 'util';
 
 const readDir = promisify(fs.readdir),
       stat = promisify(fs.stat);
@@ -16,8 +12,8 @@ const bar = path.join(__dirname, 'data', 'bar.txt'),
 
 const data = path.join(__dirname, 'data');
 
-suite('isolated', () => {
-  test('returns an empty directory.', async () => {
+suite('isolated', (): void => {
+  test('returns an empty directory.', async (): Promise<void> => {
     const tempDirectory = await isolated();
 
     const files = await readDir(tempDirectory);
@@ -25,7 +21,7 @@ suite('isolated', () => {
     assert.that(files.length).is.equalTo(0);
   });
 
-  test('copies the specified file to the isolated directory.', async () => {
+  test('copies the specified file to the isolated directory.', async (): Promise<void> => {
     const tempDirectory = await isolated({
       files: foo
     });
@@ -36,7 +32,7 @@ suite('isolated', () => {
     assert.that(files[0]).is.equalTo('foo.txt');
   });
 
-  test('copies the specified files to the isolated directory.', async () => {
+  test('copies the specified files to the isolated directory.', async (): Promise<void> => {
     const tempDirectory = await isolated({
       files: [ foo, bar ]
     });
@@ -48,7 +44,7 @@ suite('isolated', () => {
     assert.that(files).is.containing('bar.txt');
   });
 
-  test('copies the specified directory to the isolated directory.', async () => {
+  test('copies the specified directory to the isolated directory.', async (): Promise<void> => {
     const tempDirectory = await isolated({
       files: data
     });
@@ -59,7 +55,7 @@ suite('isolated', () => {
     assert.that(files).is.containing('data');
   });
 
-  test('does not preserve timestamps on files.', async () => {
+  test('does not preserve timestamps on files.', async (): Promise<void> => {
     const tempDirectory = await isolated({
       files: foo
     });
@@ -69,7 +65,7 @@ suite('isolated', () => {
     assert.that(stats.mtime.getTime()).is.greaterThan(Date.now() - 1000);
   });
 
-  test('does not preserve timestamps on directories.', async () => {
+  test('does not preserve timestamps on directories.', async (): Promise<void> => {
     const tempDirectory = await isolated({
       files: data
     });
@@ -81,7 +77,7 @@ suite('isolated', () => {
     assert.that(statsBar.mtime.getTime()).is.greaterThan(Date.now() - 1000);
   });
 
-  test('preserves timestamps on request.', async () => {
+  test('preserves timestamps on request.', async (): Promise<void> => {
     const tempDirectory = await isolated({
       files: foo,
       preserveTimestamps: true
