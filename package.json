@@ -31,7 +31,7 @@
     "@types/fs-extra": "8.0.0",
     "@types/recursive-readdir": "2.2.0",
     "@types/temp": "0.8.34",
-    "assertthat": "4.0.1",
+    "assertthat": "4.0.2",
     "roboter": "7.1.5"
   },
   "repository": {
