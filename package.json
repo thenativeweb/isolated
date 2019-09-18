@@ -32,7 +32,7 @@
     "@types/recursive-readdir": "2.2.0",
     "@types/temp": "0.8.34",
     "assertthat": "4.0.2",
-    "roboter": "7.4.0"
+    "roboter": "7.4.1"
   },
   "repository": {
     "type": "git",
