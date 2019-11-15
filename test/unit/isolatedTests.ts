@@ -1,11 +1,7 @@
-import assert from 'assertthat';
+import { assert } from 'assertthat';
 import fs from 'fs';
-import isolated from '../../lib/isolated';
+import { isolated } from '../../lib/isolated';
 import path from 'path';
-import { promisify } from 'util';
-
-const readDir = promisify(fs.readdir),
-      stat = promisify(fs.stat);
 
 const bar = path.join(__dirname, 'data', 'bar.txt'),
       foo = path.join(__dirname, 'data', 'foo.txt');
@@ -16,7 +12,7 @@ suite('isolated', (): void => {
   test('returns an empty directory.', async (): Promise<void> => {
     const tempDirectory = await isolated();
 
-    const files = await readDir(tempDirectory);
+    const files = await fs.promises.readdir(tempDirectory);
 
     assert.that(files.length).is.equalTo(0);
   });
@@ -26,7 +22,7 @@ suite('isolated', (): void => {
       files: foo
     });
 
-    const files = await readDir(tempDirectory);
+    const files = await fs.promises.readdir(tempDirectory);
 
     assert.that(files.length).is.equalTo(1);
     assert.that(files[0]).is.equalTo('foo.txt');
@@ -37,7 +33,7 @@ suite('isolated', (): void => {
       files: [ foo, bar ]
     });
 
-    const files = await readDir(tempDirectory);
+    const files = await fs.promises.readdir(tempDirectory);
 
     assert.that(files.length).is.equalTo(2);
     assert.that(files).is.containing('foo.txt');
@@ -49,7 +45,7 @@ suite('isolated', (): void => {
       files: data
     });
 
-    const files = await readDir(tempDirectory);
+    const files = await fs.promises.readdir(tempDirectory);
 
     assert.that(files.length).is.equalTo(1);
     assert.that(files).is.containing('data');
@@ -60,7 +56,7 @@ suite('isolated', (): void => {
       files: foo
     });
 
-    const stats = await stat(path.join(tempDirectory, 'foo.txt'));
+    const stats = await fs.promises.stat(path.join(tempDirectory, 'foo.txt'));
 
     assert.that(stats.mtime.getTime()).is.greaterThan(Date.now() - 1000);
   });
@@ -70,8 +66,8 @@ suite('isolated', (): void => {
       files: data
     });
 
-    const statsFoo = await stat(path.join(tempDirectory, 'data', 'foo.txt'));
-    const statsBar = await stat(path.join(tempDirectory, 'data', 'bar.txt'));
+    const statsFoo = await fs.promises.stat(path.join(tempDirectory, 'data', 'foo.txt'));
+    const statsBar = await fs.promises.stat(path.join(tempDirectory, 'data', 'bar.txt'));
 
     assert.that(statsFoo.mtime.getTime()).is.greaterThan(Date.now() - 1000);
     assert.that(statsBar.mtime.getTime()).is.greaterThan(Date.now() - 1000);
@@ -83,7 +79,7 @@ suite('isolated', (): void => {
       preserveTimestamps: true
     });
 
-    const stats = await stat(path.join(tempDirectory, 'foo.txt'));
+    const stats = await fs.promises.stat(path.join(tempDirectory, 'foo.txt'));
 
     assert.that(stats.mtime.getTime()).is.lessThan(Date.now() - 1000);
   });

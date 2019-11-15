@@ -40,4 +40,4 @@ const isolated = async function ({ files, preserveTimestamps = false }: {
   return tempDirectory;
 };
 
-export default isolated;
+export { isolated };

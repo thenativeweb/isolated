@@ -23,13 +23,13 @@ $ npm install isolated
 Using isolated is easy. All you need to do is to add a reference to it within your Node.js application:
 
 ```javascript
-const isolated = require('isolated').default;
+const { isolated } = require('isolated');
 ```
 
 If you use TypeScript, use the following code instead:
 
 ```typescript
-import isolated from 'isolated';
+import { isolated } from 'isolated';
 ```
 
 Then you can use it within your tests. In its simplest form, isolated provides a one-time folder for your test and guarantees to clean up later.
