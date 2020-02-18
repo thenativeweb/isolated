@@ -28,7 +28,7 @@
     "temp": "0.9.1"
   },
   "devDependencies": {
-    "@types/fs-extra": "8.0.1",
+    "@types/fs-extra": "8.1.0",
     "@types/recursive-readdir": "2.2.0",
     "@types/temp": "0.8.34",
     "assertthat": "5.1.0",
