@@ -31,7 +31,7 @@
     "@types/fs-extra": "8.1.0",
     "@types/recursive-readdir": "2.2.0",
     "@types/temp": "0.8.34",
-    "assertthat": "5.1.0",
+    "assertthat": "5.1.1",
     "roboter": "11.1.14",
     "semantic-release-configuration": "1.0.18"
   },
