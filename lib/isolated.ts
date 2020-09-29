@@ -10,6 +10,7 @@ const isolated = async function ({ files, preserveTimestamps = false }: {
   files?: string | string[];
   preserveTimestamps?: boolean;
 } = {}): Promise<string> {
+  // eslint-disable-next-line unicorn/no-useless-undefined
   const tempDirectory = await mkdir(undefined);
 
   if (!files) {
