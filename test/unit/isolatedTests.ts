@@ -58,7 +58,7 @@ suite('isolated', (): void => {
 
     const stats = await fs.promises.stat(path.join(tempDirectory, 'foo.txt'));
 
-    assert.that(stats.mtime.getTime()).is.greaterThan(Date.now() - 1000);
+    assert.that(stats.mtime.getTime()).is.greaterThan(Date.now() - 1_000);
   });
 
   test('does not preserve timestamps on directories.', async (): Promise<void> => {
@@ -69,8 +69,8 @@ suite('isolated', (): void => {
     const statsFoo = await fs.promises.stat(path.join(tempDirectory, 'data', 'foo.txt'));
     const statsBar = await fs.promises.stat(path.join(tempDirectory, 'data', 'bar.txt'));
 
-    assert.that(statsFoo.mtime.getTime()).is.greaterThan(Date.now() - 1000);
-    assert.that(statsBar.mtime.getTime()).is.greaterThan(Date.now() - 1000);
+    assert.that(statsFoo.mtime.getTime()).is.greaterThan(Date.now() - 1_000);
+    assert.that(statsBar.mtime.getTime()).is.greaterThan(Date.now() - 1_000);
   });
 
   test('preserves timestamps on request.', async (): Promise<void> => {
@@ -81,6 +81,6 @@ suite('isolated', (): void => {
 
     const stats = await fs.promises.stat(path.join(tempDirectory, 'foo.txt'));
 
-    assert.that(stats.mtime.getTime()).is.lessThan(Date.now() - 1000);
+    assert.that(stats.mtime.getTime()).is.lessThan(Date.now() - 1_000);
   });
 });
