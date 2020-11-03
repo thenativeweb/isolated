@@ -23,7 +23,7 @@
   "main": "build/lib/isolated.js",
   "types": "build/lib/isolated.d.ts",
   "dependencies": {
-    "@types/fs-extra": "9.0.2",
+    "@types/fs-extra": "9.0.3",
     "@types/recursive-readdir": "2.2.0",
     "@types/temp": "0.8.34",
     "fs-extra": "9.0.1",
