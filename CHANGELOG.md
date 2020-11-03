@@ -1,3 +1,10 @@
+## [3.0.6](https://github.com/thenativeweb/isolated/compare/3.0.5...3.0.6) (2020-11-03)
+
+
+### Bug Fixes
+
+* Fix headline for robot section in readme. ([#195](https://github.com/thenativeweb/isolated/issues/195)) ([48430fc](https://github.com/thenativeweb/isolated/commit/48430fcc62dbe32aed8088cc348bf0979d2ae3d0))
+
 ## [3.0.5](https://github.com/thenativeweb/isolated/compare/3.0.4...3.0.5) (2020-11-03)
 
 
