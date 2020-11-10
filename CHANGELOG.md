@@ -1,3 +1,10 @@
+## [3.0.7](https://github.com/thenativeweb/isolated/compare/3.0.6...3.0.7) (2020-11-10)
+
+
+### Bug Fixes
+
+* bump temp from 0.9.2 to 0.9.4 ([#211](https://github.com/thenativeweb/isolated/issues/211)) ([07b6d1d](https://github.com/thenativeweb/isolated/commit/07b6d1d2decf340fc14451c7f6e46fb23314d3bc))
+
 ## [3.0.6](https://github.com/thenativeweb/isolated/compare/3.0.5...3.0.6) (2020-11-03)
 
 
