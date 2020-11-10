@@ -1,6 +1,6 @@
 {
   "name": "isolated",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "isolated provides one-time folders for unit tests.",
   "contributors": [
     {
@@ -28,7 +28,7 @@
     "@types/temp": "0.8.34",
     "fs-extra": "9.0.1",
     "recursive-readdir": "2.2.2",
-    "temp": "0.9.2"
+    "temp": "0.9.4"
   },
   "devDependencies": {
     "assertthat": "5.2.5",
