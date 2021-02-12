@@ -1,3 +1,10 @@
+## [3.0.12](https://github.com/thenativeweb/isolated/compare/3.0.11...3.0.12) (2021-02-12)
+
+
+### Bug Fixes
+
+* bump @types/fs-extra from 9.0.6 to 9.0.7 ([#263](https://github.com/thenativeweb/isolated/issues/263)) ([ab493fd](https://github.com/thenativeweb/isolated/commit/ab493fd334e0aa4d74fe66d5f4e15252e1c2a80e))
+
 ## [3.0.11](https://github.com/thenativeweb/isolated/compare/3.0.10...3.0.11) (2021-01-22)
 
 
