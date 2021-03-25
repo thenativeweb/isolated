@@ -1,3 +1,10 @@
+## [3.0.14](https://github.com/thenativeweb/isolated/compare/3.0.13...3.0.14) (2021-03-25)
+
+
+### Bug Fixes
+
+* Migrate from master to main. ([#285](https://github.com/thenativeweb/isolated/issues/285)) ([2455873](https://github.com/thenativeweb/isolated/commit/2455873d967881616046d4d88dd96bf7bb5de72d))
+
 ## [3.0.13](https://github.com/thenativeweb/isolated/compare/3.0.12...3.0.13) (2021-03-01)
 
 
