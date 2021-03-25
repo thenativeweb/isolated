@@ -9,7 +9,7 @@ isolated provides one-time folders for unit tests.
 | Version          | [![npm](https://img.shields.io/npm/v/isolated)](https://www.npmjs.com/package/isolated)                                                      |
 | Dependencies     | ![David](https://img.shields.io/david/thenativeweb/isolated)                                                                                 |
 | Dev dependencies | ![David](https://img.shields.io/david/dev/thenativeweb/isolated)                                                                             |
-| Build            | ![GitHub Actions](https://github.com/thenativeweb/isolated/workflows/Release/badge.svg?branch=master) |
+| Build            | ![GitHub Actions](https://github.com/thenativeweb/isolated/workflows/Release/badge.svg?branch=main) |
 | License          | ![GitHub](https://img.shields.io/github/license/thenativeweb/isolated)                                                                       |
 
 ## Installation
