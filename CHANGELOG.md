@@ -1,3 +1,10 @@
+## [3.0.17](https://github.com/thenativeweb/isolated/compare/3.0.16...3.0.17) (2021-05-06)
+
+
+### Bug Fixes
+
+* bump fs-extra from 9.1.0 to 10.0.0 ([#304](https://github.com/thenativeweb/isolated/issues/304)) ([c426f22](https://github.com/thenativeweb/isolated/commit/c426f227ad5438bb1c2a36e03cd4c8c3a52395c4))
+
 ## [3.0.16](https://github.com/thenativeweb/isolated/compare/3.0.15...3.0.16) (2021-04-13)
 
 
