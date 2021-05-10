@@ -1,3 +1,10 @@
+## [3.0.18](https://github.com/thenativeweb/isolated/compare/3.0.17...3.0.18) (2021-05-10)
+
+
+### Bug Fixes
+
+* bump hosted-git-info from 2.8.8 to 2.8.9 ([#306](https://github.com/thenativeweb/isolated/issues/306)) ([50f3e8c](https://github.com/thenativeweb/isolated/commit/50f3e8c5511f9832f7adc2b1cba7fcff9cbbf7bc))
+
 ## [3.0.17](https://github.com/thenativeweb/isolated/compare/3.0.16...3.0.17) (2021-05-06)
 
 
