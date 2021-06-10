@@ -1,3 +1,10 @@
+## [3.0.19](https://github.com/thenativeweb/isolated/compare/3.0.18...3.0.19) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump trim-newlines from 3.0.0 to 3.0.1 ([#320](https://github.com/thenativeweb/isolated/issues/320)) ([df8e898](https://github.com/thenativeweb/isolated/commit/df8e8983fd74983f7abc9a54907427664114b6ec))
+
 ## [3.0.18](https://github.com/thenativeweb/isolated/compare/3.0.17...3.0.18) (2021-05-10)
 
 
