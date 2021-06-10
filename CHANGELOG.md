@@ -1,3 +1,10 @@
+## [3.0.20](https://github.com/thenativeweb/isolated/compare/3.0.19...3.0.20) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump normalize-url from 6.0.0 to 6.0.1 ([#319](https://github.com/thenativeweb/isolated/issues/319)) ([adf6863](https://github.com/thenativeweb/isolated/commit/adf6863cb284d0e4659336ea0244a07c24c67597))
+
 ## [3.0.19](https://github.com/thenativeweb/isolated/compare/3.0.18...3.0.19) (2021-06-10)
 
 
