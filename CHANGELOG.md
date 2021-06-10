@@ -1,3 +1,10 @@
+## [3.0.21](https://github.com/thenativeweb/isolated/compare/3.0.20...3.0.21) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump glob-parent from 5.1.1 to 5.1.2 ([#318](https://github.com/thenativeweb/isolated/issues/318)) ([b1cfafd](https://github.com/thenativeweb/isolated/commit/b1cfafd65f76a292abe9fbd2df94fc12436fbf94))
+
 ## [3.0.20](https://github.com/thenativeweb/isolated/compare/3.0.19...3.0.20) (2021-06-10)
 
 
