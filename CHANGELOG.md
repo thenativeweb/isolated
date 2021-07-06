@@ -1,3 +1,10 @@
+## [3.0.22](https://github.com/thenativeweb/isolated/compare/3.0.21...3.0.22) (2021-07-06)
+
+
+### Bug Fixes
+
+* bump @types/temp from 0.9.0 to 0.9.1 ([#327](https://github.com/thenativeweb/isolated/issues/327)) ([c7df92c](https://github.com/thenativeweb/isolated/commit/c7df92cfa7bf1bb508c166a1504ef5c783a4a051))
+
 ## [3.0.21](https://github.com/thenativeweb/isolated/compare/3.0.20...3.0.21) (2021-06-10)
 
 
