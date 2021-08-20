@@ -23,9 +23,6 @@
   "private": false,
   "main": "build/lib/isolated.js",
   "types": "build/lib/isolated.d.ts",
-  "engines": {
-    "node": ">= 16.7.0"
-  },
   "dependencies": {
     "@types/fs-extra": "9.0.12",
     "@types/recursive-readdir": "2.2.0",
@@ -36,7 +33,7 @@
   },
   "devDependencies": {
     "assertthat": "6.3.13",
-    "roboter": "12.1.1",
+    "roboter": "12.1.2",
     "semantic-release-configuration": "2.0.5"
   },
   "scripts": {},
