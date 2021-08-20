@@ -1,3 +1,10 @@
+## [3.0.24](https://github.com/thenativeweb/isolated/compare/3.0.23...3.0.24) (2021-08-20)
+
+
+### Bug Fixes
+
+* add include to tsconfig ([#337](https://github.com/thenativeweb/isolated/issues/337)) ([561904a](https://github.com/thenativeweb/isolated/commit/561904a19a60da0872ddc9c4c89c60bb1582e206))
+
 ## [3.0.23](https://github.com/thenativeweb/isolated/compare/3.0.22...3.0.23) (2021-07-13)
 
 
