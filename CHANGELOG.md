@@ -1,3 +1,10 @@
+## [3.0.25](https://github.com/thenativeweb/isolated/compare/3.0.24...3.0.25) (2021-08-24)
+
+
+### Bug Fixes
+
+* add exclude to tsconfig.json, remove engine constraint ([#338](https://github.com/thenativeweb/isolated/issues/338)) ([a5f1314](https://github.com/thenativeweb/isolated/commit/a5f1314953055a4047d4329e83bb48d9ab686c33))
+
 ## [3.0.24](https://github.com/thenativeweb/isolated/compare/3.0.23...3.0.24) (2021-08-20)
 
 
