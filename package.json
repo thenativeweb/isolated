@@ -25,7 +25,7 @@
   "types": "build/lib/isolated.d.ts",
   "dependencies": {
     "@types/fs-extra": "9.0.13",
-    "@types/recursive-readdir": "2.2.0",
+    "@types/recursive-readdir": "2.2.1",
     "@types/temp": "0.9.1",
     "fs-extra": "10.0.1",
     "recursive-readdir": "2.2.2",
